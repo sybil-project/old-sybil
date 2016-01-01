@@ -2,9 +2,15 @@
   (:require [reagent.core :as reagent]
             [cljsjs.react]))
 
+(defn greeting
+  []
+  [:div "Hello World"])
+
 (defn main-page
   []
-  [:div "Hello World!"])
+  [:div#main {:class "row"}
+   [:div {:class "large-12 columns"}
+    [greeting]]])
 
 (defn mount-root
   []
