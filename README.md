@@ -1,6 +1,9 @@
 
 # sybil
 
+Like the web, but worse.
+
+
 ## Requirements
 
 * JDK 1.7+
