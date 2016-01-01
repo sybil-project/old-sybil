@@ -1,20 +1,30 @@
 (ns sybil.core
   (:require [reagent.core :as reagent]
-            [cljsjs.react]))
+            [cljsjs.react]
+            [petrol.core :as petrol]
+            [sybil.processing :as processing]
+            [sybil.view :as view]))
 
-(defn greeting
-  []
-  [:div [:h1 "Hello Sybil!"]])
+(def initial-state
+  {:counter 0})
 
-(defn main-page
+(defonce !app
+  (reagent/atom initial-state))
+
+;; figwheel reload-hook
+(defn reload-hook
   []
-  [:div#main {:class "row"}
-   [:div {:class "large-12 columns"}
-    [greeting]]])
+  (swap! !app identity))
+
+(defn render-fn
+  [ui-channel app]
+  (reagent/render-component [view/root ui-channel app]
+                            (.getElementById js/document "app")))
 
 (defn mount-root
   []
-  (reagent/render [main-page] (.getElementById js/document "app")))
+  (enable-console-print!)
+  (petrol/start-message-loop! !app render-fn))
 
 (defn init!
   []
