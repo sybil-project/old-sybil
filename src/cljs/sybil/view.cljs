@@ -15,9 +15,9 @@
 (defn root
   [ui-channel app]
    [:div.expanded.row
-    [:div.large-12.columns
+    [:div.large-5.columns
      [:h1 "Interesting Counter!"]
-     [:div (:counter app)]
+     [:div.callout (:counter app)]
      [:div.button-group
       [:a.alert.button {:on-click (send! ui-channel (m/->ResetCounter))}
        "Reset"]
