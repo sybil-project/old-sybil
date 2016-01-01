@@ -4,7 +4,7 @@
 
 (defn greeting
   []
-  [:div "Hello World"])
+  [:div [:h1 "Hello Sybil!"]])
 
 (defn main-page
   []
