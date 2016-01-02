@@ -1,32 +1,26 @@
 (ns sybil.view
-  (:require [petrol.core :refer [send!]]
+  (:require [petrol.core :refer [send! send-value!]]
             [sybil.messages :as m]))
 
-(defn greeting
-  []
-  [:div [:h1 "Hello Sybil!"]])
+;; text entry
+(defn text-display
+  [ui-channel app]
+  [:div.row
+   [:div.large-12.columns
+    [:div.callout (:text app)]]])
 
-(defn main-page
-  []
-  [:div#main {:class "row"}
-   [:div {:class "large-12 columns"}
-    [greeting]]])
+(defn text-editor
+  [ui-channel app]
+  [:div.row
+   [:div.large-12.columns
+    [:input {:type :text
+             :defaultValue (:text app)
+             :on-change (send-value! ui-channel m/->UpdateText)}]]])
 
 (defn root
   [ui-channel app]
-   [:div.expanded.row
-    [:div.large-5.columns
-     [:h1 "Interesting Counter!"]
-     [:div.callout (:counter app)]
-     [:div.button-group
-      [:a.alert.button {:on-click (send! ui-channel (m/->ResetCounter))}
-       "Reset"]
-      (for [[label delta] [["Decrement" -1]
-                           ["Increment" 1]
-                           ["+ 5" 5]
-                           ["+ 10" 10]]]
-        [:a.button {:key delta
-                    :on-click (send! ui-channel (m/->ModifyCounter delta))}
-         label])]
-      ]
-     ])
+  [:div.expanded.row
+   [:div.large-6.columns
+    [:h1 "Text Editor"]
+    [text-editor ui-channel app]
+    [text-display ui-channel app]]])

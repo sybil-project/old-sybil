@@ -6,7 +6,8 @@
             [sybil.view :as view]))
 
 (def initial-state
-  {:counter 0})
+  {:counter 0
+   :text "Hello World!"})
 
 (defonce !app
   (reagent/atom initial-state))

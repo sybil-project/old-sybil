@@ -1,4 +1,3 @@
 (ns sybil.messages)
 
-(defrecord ResetCounter [])
-(defrecord ModifyCounter [n])
+(defrecord UpdateText [t])
