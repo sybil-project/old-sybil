@@ -7,7 +7,8 @@
   [ui-channel text]
   [:div.row
    [:div.large-12.columns
-    [:div.callout text]]])
+    [:div.callout text]
+    [:div [:span.fa.fa-diamond]]]])
 
 (defn text-editor
   [ui-channel app]
