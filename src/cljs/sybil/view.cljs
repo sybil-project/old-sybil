@@ -4,10 +4,10 @@
 
 ;; text entry
 (defn text-display
-  [ui-channel app]
+  [ui-channel text]
   [:div.row
    [:div.large-12.columns
-    [:div.callout (:text app)]]])
+    [:div.callout text]]])
 
 (defn text-editor
   [ui-channel app]
@@ -23,4 +23,4 @@
    [:div.large-6.columns
     [:h1 "Text Editor"]
     [text-editor ui-channel app]
-    [text-display ui-channel app]]])
+    [text-display ui-channel (:text app)]]])
