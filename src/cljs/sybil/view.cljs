@@ -19,6 +19,9 @@
              :on-change (send-value! ui-channel m/->UpdateText)}]]])
 
 ;; Top bar
+(defn- load-page-action [ui-channel address]
+  (send! ui-channel (m/->LoadPage address)))
+
 (defn address-input
   [ui-channel address]
   [:div#address-input
@@ -28,16 +31,33 @@
       [:input.input-group-field
        {:type :text
         :defaultValue address
-        :on-change (send-value! ui-channel m/->UpdateAddress)}]
+        :on-change (send-value! ui-channel m/->UpdateAddress)
+        :on-key-up (fn [e]
+                     (if (= (.-keyCode e) 13)
+                       ((load-page-action ui-channel address) e)))}]
       [:div.input-group-button
        [:button#go-button.button
-        {:on-click (send! ui-channel (m/->LoadPage address))}
+        {:on-click (load-page-action ui-channel address)}
         [:span.fa.fa-arrow-right]]]]]]])
+
+(defn navigation-buttons
+  [ui-channel app]
+  [:div#navigation-buttons
+   [:button.button
+    [:span.fa.fa-arrow-left]]
+   [:button.button
+    [:span.fa.fa-arrow-right]]
+   [:button.button
+    [:span.fa.fa-refresh]]
+
+   ])
 
 (defn navigation-bar
   [ui-channel {:keys [navigation] :as app}]
   [:div#navigation-bar.expanded.row
-   [:div.medium-12.columns
+   [:div#navigation-buttons-wrapper.shrink.columns
+    [navigation-buttons ui-channel app]]
+   [:div.columns
     [address-input ui-channel (:address navigation)]]])
 
 ;; Root component

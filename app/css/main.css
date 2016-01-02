@@ -8,6 +8,19 @@
   padding-bottom: 12px;
 }
 
+#navigation-buttons-wrapper {
+  padding-right: 0px;
+}
+
+#navigation-buttons button {
+  margin-right: 4px;
+  margin-bottom: 0px;
+}
+
+#navigation-buttons button:last-child {
+  margin-right: 0px;
+}
+
 #address-input .input-group {
   margin-bottom: 0px;
 }
