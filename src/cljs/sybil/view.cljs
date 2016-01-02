@@ -2,7 +2,7 @@
   (:require [petrol.core :refer [send! send-value!]]
             [sybil.messages :as m]))
 
-;; text entry
+;; text entry (example)
 (defn text-display
   [ui-channel text]
   [:div.row
@@ -21,7 +21,7 @@
 ;; Top bar
 (defn address-input
   [ui-channel address]
-  [:form#address-input
+  [:div#address-input
    [:div.expanded.row
     [:div.medium-12.columns
      [:div.input-group

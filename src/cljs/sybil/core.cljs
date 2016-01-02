@@ -8,7 +8,11 @@
 (def initial-state
   {:counter 0
    :text "Hello World!"
-   :navigation {:address "http://example.com"}})
+   :navigation {:address "http://example.com"}
+   :tabs {:active-tab 0
+          :tab-list [{:source-address "about:welcome"
+                      :title "Welcome"
+                      :content {:md "#Welcome\n\nWelcome to Sybil."}}]}})
 
 (defonce !app
   (reagent/atom initial-state))
