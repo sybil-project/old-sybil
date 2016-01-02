@@ -7,7 +7,8 @@
 
 (def initial-state
   {:counter 0
-   :text "Hello World!"})
+   :text "Hello World!"
+   :navigation {:address "http://example.com"}})
 
 (defonce !app
   (reagent/atom initial-state))

@@ -1,0 +1,19 @@
+#main {
+
+}
+
+#navigation-bar {
+  border-bottom: 1px solid #ddd;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+#address-input .input-group {
+  margin-bottom: 0px;
+}
+
+#address-input {
+}
+
+#go-button {
+}
