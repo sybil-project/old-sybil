@@ -43,13 +43,12 @@
 (defn navigation-buttons
   [ui-channel app]
   [:div#navigation-buttons
-   [:button.button
+   [:a.hollow.button
     [:span.fa.fa-arrow-left]]
-   [:button.button
+   [:a.hollow.button
     [:span.fa.fa-arrow-right]]
-   [:button.button
+   [:a.hollow.button
     [:span.fa.fa-refresh]]
-
    ])
 
 (defn navigation-bar

@@ -12,12 +12,12 @@
   padding-right: 0px;
 }
 
-#navigation-buttons button {
+#navigation-buttons a {
   margin-right: 4px;
   margin-bottom: 0px;
 }
 
-#navigation-buttons button:last-child {
+#navigation-buttons a:last-child {
   margin-right: 0px;
 }
 
