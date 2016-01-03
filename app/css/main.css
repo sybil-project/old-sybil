@@ -2,20 +2,33 @@
 
 }
 
-#navigation-bar {
+/* top bar */
+#top-bar {
   border-bottom: 1px solid #ddd;
   padding-top: 14px;
 }
 
-#navigation-buttons-wrapper {
+#top-bar-left {
   padding-right: 0px;
 }
 
-#navigation-buttons a {
+#top-bar-right {
+  padding-left: 0px;
+}
+
+#top-bar-left a {
   margin-right: 12px;
 }
 
-#navigation-buttons a:last-child {
+#top-bar-left a:last-child {
+  margin-right: 0px;
+}
+
+#top-bar-right a {
+  margin-right: 12px;
+}
+
+#top-bar-right a:last-child {
   margin-right: 0px;
 }
 
@@ -26,8 +39,4 @@
 }
 
 #go-button {
-}
-
-#settings-button-wrapper {
-  padding-left: 0px;
 }

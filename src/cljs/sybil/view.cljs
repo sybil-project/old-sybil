@@ -51,20 +51,25 @@
     [:span.fa.fa-refresh]]
    ])
 
+(defn new-tab-button
+  [ui-channel app]
+   [:a#new-tab-button.hollow.button
+    [:span.fa.fa-plus]])
+
 (defn settings-button
   [ui-channel app]
-  [:div#settings-button
-   [:a.hollow.button
-    [:span.fa.fa-cog]]])
+   [:a#settings-button.hollow.button
+    [:span.fa.fa-cog]])
 
-(defn navigation-bar
+(defn top-bar
   [ui-channel {:keys [navigation] :as app}]
-  [:div#navigation-bar.expanded.row
-   [:div#navigation-buttons-wrapper.shrink.columns
+  [:div#top-bar.expanded.row
+   [:div#top-bar-left.shrink.columns
     [navigation-buttons ui-channel app]]
-   [:div.columns
+   [:div#top-bar-center.columns
     [address-input ui-channel (:address navigation)]]
-   [:div#settings-button-wrapper.shrink.columns
+   [:div#top-bar-right.shrink.columns
+    [new-tab-button ui-channel app]
     [settings-button ui-channel app]]])
 
 ;; Root component
@@ -73,7 +78,7 @@
   [:div#main.expanded.row
    [:div.medium-12.columns
     #_[:h1 "Text Editor"]
-    [navigation-bar ui-channel app]
+    [top-bar ui-channel app]
     #_[text-editor ui-channel app]
     #_[text-display ui-channel (:text app)]
 
