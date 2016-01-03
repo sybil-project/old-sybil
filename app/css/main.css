@@ -4,8 +4,7 @@
 
 #navigation-bar {
   border-bottom: 1px solid #ddd;
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding-top: 14px;
 }
 
 #navigation-buttons-wrapper {
@@ -13,8 +12,7 @@
 }
 
 #navigation-buttons a {
-  margin-right: 4px;
-  margin-bottom: 0px;
+  margin-right: 12px;
 }
 
 #navigation-buttons a:last-child {
@@ -22,11 +20,14 @@
 }
 
 #address-input .input-group {
-  margin-bottom: 0px;
 }
 
 #address-input {
 }
 
 #go-button {
+}
+
+#settings-button-wrapper {
+  padding-left: 0px;
 }

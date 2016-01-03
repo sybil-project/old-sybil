@@ -51,13 +51,21 @@
     [:span.fa.fa-refresh]]
    ])
 
+(defn settings-button
+  [ui-channel app]
+  [:div#settings-button
+   [:a.hollow.button
+    [:span.fa.fa-cog]]])
+
 (defn navigation-bar
   [ui-channel {:keys [navigation] :as app}]
   [:div#navigation-bar.expanded.row
    [:div#navigation-buttons-wrapper.shrink.columns
     [navigation-buttons ui-channel app]]
    [:div.columns
-    [address-input ui-channel (:address navigation)]]])
+    [address-input ui-channel (:address navigation)]]
+   [:div#settings-button-wrapper.shrink.columns
+    [settings-button ui-channel app]]])
 
 ;; Root component
 (defn root
