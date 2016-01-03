@@ -2,22 +2,6 @@
   (:require [petrol.core :refer [send! send-value!]]
             [sybil.messages :as m]))
 
-;; text entry (example)
-(defn text-display
-  [ui-channel text]
-  [:div.row
-   [:div.large-12.columns
-    [:div.callout text]
-    [:div [:span.fa.fa-diamond]]]])
-
-(defn text-editor
-  [ui-channel app]
-  [:div.row
-   [:div.large-12.columns
-    [:input {:type :text
-             :defaultValue (:text app)
-             :on-change (send-value! ui-channel m/->UpdateText)}]]])
-
 ;; Top bar
 (defn- load-page-action [ui-channel address]
   (send! ui-channel (m/->LoadPage address)))
@@ -84,10 +68,5 @@
   [ui-channel app]
   [:div#main.expanded.row
    [:div.medium-12.columns
-    #_[:h1 "Text Editor"]
     [top-bar ui-channel app]
-    #_[text-editor ui-channel app]
-    #_[text-display ui-channel (:text app)]
-    [page-container ui-channel app]
-
-    ]])
+    [page-container ui-channel app]]])
