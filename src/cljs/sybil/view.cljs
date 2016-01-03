@@ -72,6 +72,13 @@
     [new-tab-button ui-channel app]
     [settings-button ui-channel app]]])
 
+
+;; Page body
+(defn page-container
+  [ui-channel app]
+  [:div#page-container.expanded.row
+   [:div.medium-12.columns "hi"]])
+
 ;; Root component
 (defn root
   [ui-channel app]
@@ -81,5 +88,6 @@
     [top-bar ui-channel app]
     #_[text-editor ui-channel app]
     #_[text-display ui-channel (:text app)]
+    [page-container ui-channel app]
 
     ]])
