@@ -35,15 +35,10 @@
     [:span.fa.fa-refresh]]
    ])
 
-(defn new-tab-button
+(defn menu-button
   [ui-channel app]
-   [:a#new-tab-button.hollow.button
-    [:span.fa.fa-plus]])
-
-(defn settings-button
-  [ui-channel app]
-   [:a#settings-button.hollow.button
-    [:span.fa.fa-cog]])
+   [:a#menu-button.hollow.button
+    [:span.fa.fa-bars]])
 
 (defn top-bar
   [ui-channel {:keys [navigation] :as app}]
@@ -53,8 +48,7 @@
    [:div#top-bar-center.columns
     [address-input ui-channel (:address navigation)]]
    [:div#top-bar-right.shrink.columns
-    [new-tab-button ui-channel app]
-    [settings-button ui-channel app]]])
+    [menu-button ui-channel app]]])
 
 
 ;; Page body
