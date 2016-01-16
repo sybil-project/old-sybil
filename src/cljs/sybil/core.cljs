@@ -9,10 +9,8 @@
   {:counter 0
    :text "Hello World!"
    :navigation {:address "http://example.com"}
-   :tabs {:active-tab 0
-          :tab-list [{:source-address "about:welcome"
-                      :title "Welcome"
-                      :content {:md "#Welcome\n\nWelcome to Sybil."}}]}})
+   :page {:md-content "# Welcome to Sybil"
+          :source-url "about:welcome"}})
 
 (defonce !app
   (reagent/atom initial-state))
