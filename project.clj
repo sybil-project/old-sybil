@@ -10,6 +10,7 @@
                  [org.clojure/clojurescript "1.7.170"]
                  [cljsjs/react "0.13.3-1"]
                  [cljsjs/nodejs-externs "1.0.4-1"]
+                 [cljsjs/commonmark "0.22.0-0"]
                  [reagent "0.5.1"]
                  [petrol "0.1.2"]
                  ]
