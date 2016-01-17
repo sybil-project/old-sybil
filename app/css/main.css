@@ -44,3 +44,8 @@
 #page-container {
   padding-top: 12px;
 }
+
+#page-container .page {
+  padding-left: 20%;
+  padding-right: 20%;
+}

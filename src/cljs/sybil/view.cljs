@@ -51,11 +51,16 @@
     [menu-button ui-channel app]]])
 
 
+(defn page [ui-channel page-data]
+  [:div.expanded.row.page
+   [:div.medium-12.columns
+    {:dangerouslySetInnerHTML {:__html (:html-content page-data)}} ]])
+
 ;; Page body
 (defn page-container
-  [ui-channel app]
+  [ui-channel page-data]
   [:div#page-container.expanded.row
-   [:div.medium-12.columns "hi"]])
+   [:div.medium-12.columns [page ui-channel page-data]]])
 
 ;; Root component
 (defn root
@@ -63,4 +68,4 @@
   [:div#main.expanded.row
    [:div.medium-12.columns
     [top-bar ui-channel app]
-    [page-container ui-channel app]]])
+    [page-container ui-channel (:page app)]]])

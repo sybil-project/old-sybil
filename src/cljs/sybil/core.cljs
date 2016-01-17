@@ -3,14 +3,18 @@
             [cljsjs.react]
             [petrol.core :as petrol]
             [sybil.processing :as processing]
-            [sybil.view :as view]))
+            [sybil.view :as view]
+            [sybil.parser :as parser]))
+
+(def about-welcome-page
+  {:source-url "about:welcome"
+   :md-content "# Welcome to Sybil\nTake a look [here](http://example.com)"})
 
 (def initial-state
   {:counter 0
    :text "Hello World!"
-   :navigation {:address "http://example.com"}
-   :page {:md-content "# Welcome to Sybil"
-          :source-url "about:welcome"}})
+   :navigation {:address "about:welcome"}
+   :page (parser/render-page about-welcome-page)})
 
 (defonce !app
   (reagent/atom initial-state))
