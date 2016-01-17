@@ -4,11 +4,13 @@
             [petrol.core :as petrol]
             [sybil.processing :as processing]
             [sybil.view :as view]
-            [sybil.parser :as parser]))
+            [sybil.parser :as parser]
+            [sybil.page :as page]))
 
 (def about-welcome-page
-  {:source-url "about:welcome"
-   :md-content "# Welcome to Sybil\nTake a look [here](http://example.com)"})
+  (-> (page/create "about:welcome")
+      (assoc :md-content
+       "# Welcome to Sybil\nTake a look [here](http://example.com)")))
 
 (def initial-state
   {:counter 0
