@@ -50,9 +50,17 @@
    [:div#top-bar-right.shrink.columns
     [menu-button ui-channel app]]])
 
+(defn- handle-page-click [ui-channel]
+  (fn [e]
+    (let [tag-name (-> e (.-target) (.-tagName))]
+      (if (= tag-name "A")
+        (do
+          (.preventDefault e)
+          ((load-page-action ui-channel (-> e (.-target) (.-href))) e))))))
 
 (defn page [ui-channel page-data]
   [:div.expanded.row.page
+   {:on-click (handle-page-click ui-channel)}
    [:div.medium-12.columns
     {:dangerouslySetInnerHTML {:__html (:html-content page-data)}} ]])
 

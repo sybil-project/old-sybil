@@ -5,6 +5,7 @@
             [sybil.processing :as processing]
             [sybil.view :as view]
             [sybil.parser :as parser]
+            [sybil.messages :as m]
             [sybil.page :as page]))
 
 (def about-welcome-page
@@ -34,7 +35,8 @@
 (defn mount-root
   []
   (enable-console-print!)
-  (petrol/start-message-loop! !app render-fn))
+  (petrol/start-message-loop! !app render-fn)
+  (petrol/send! m/LoadPage "about:welcome"))
 
 (defn init!
   []
