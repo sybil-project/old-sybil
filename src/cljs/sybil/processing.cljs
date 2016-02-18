@@ -13,7 +13,7 @@
 
   m/LoadPage
   (process-message [{:keys [address]} app]
-    (println ">> " address)
+    (println ">> loading" address)
     app)
 
   m/UpdateText
