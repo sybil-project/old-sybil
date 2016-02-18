@@ -52,11 +52,12 @@
 
 (defn- handle-page-click [ui-channel]
   (fn [e]
-    (let [tag-name (-> e (.-target) (.-tagName))]
+    (let [target (.-target e)
+          tag-name (.-tagName target)]
       (if (= tag-name "A")
-        (do
+        (let [href (.-href target)]
           (.preventDefault e)
-          ((load-page-action ui-channel (-> e (.-target) (.-href))) e))))))
+          ((load-page-action ui-channel href) e))))))
 
 (defn page [ui-channel page-data]
   [:div.expanded.row.page
